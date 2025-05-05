@@ -38,6 +38,7 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-app.get('/', (req, res) => {
-  res.send('API contact backend is up');
+app.post('/api/contacts', async (req, res) => {
+  console.log('Reçu du frontend :', req.body); // <-- Ajoute ce log
+  ...
 });
