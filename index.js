@@ -37,3 +37,16 @@ console.log("Reçu du front:", req.body);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+// Route pour stocker le consentement cookies
+app.post('/api/cookies', async (req, res) => {
+    try {
+        const data = req.body; // { consent: 'accepted'/'rejected', date: ... }
+        // Option 1 : enregistrer dans Firestore "consents"
+        await db.collection('consents').add(data);
+
+        res.status(200).send({ message: 'Consentement pris en compte !' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: "Erreur d'enregistrement consentement" });
+    }
+});
