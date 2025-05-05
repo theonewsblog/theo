@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
 
 // 1. Lancer la config Firebase (avec ton fichier de clé)
-const serviceAccount = require('./mcs-transitions-firebase-adminsdk-fbsvc-11973bc699');
+const serviceAccount = require('./mcs-transitions-firebase-adminsdk-fbsvc-afe1494a57');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
