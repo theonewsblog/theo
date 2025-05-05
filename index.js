@@ -19,7 +19,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // 2. API : route POST pour recevoir le formulaire
-app.post('/api/contact', async (req, res) => {
+app.post('/api/contacts', async (req, res) => {
   try {
     // Récupère les données envoyées par le client
     const data = req.body;
