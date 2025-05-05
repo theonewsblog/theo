@@ -40,5 +40,4 @@ app.listen(PORT, () => {
 
 app.post('/api/contacts', async (req, res) => {
   console.log('Reçu du frontend :', req.body); // <-- Ajoute ce log
-  ...
 });
