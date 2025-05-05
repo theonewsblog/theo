@@ -9,8 +9,7 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-const db = admin.firestore(); // Si tu utilises Firestore
-// const db = admin.database(); // Si tu utilises le RTDB
+const db = admin.database(); // Si tu utilises le RTDB
 
 const app = express();
 const PORT = process.env.PORT || 8080;
