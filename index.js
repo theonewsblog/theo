@@ -23,6 +23,7 @@ app.post('/api/contacts', async (req, res) => {
     // Récupère les données envoyées par le client
     const data = req.body;
 
+console.log("Reçu du front:", req.body);
     // Enregistre dans Firestore (ou RTDB)
     await db.collection('contacts').add(data);
 
