@@ -8,8 +8,8 @@ const serviceAccount = require('./mcs-transitions-firebase-adminsdk-fbsvc-0e946c
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
-
-const db = admin.database(); // Si tu utilises le RTDB
+const db = admin.firestore(); // Si tu utilises Firestore
+//const db = admin.database(); // Si tu utilises le RTDB
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -35,8 +35,4 @@ app.post('/api/contacts', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
-
-app.post('/api/contacts', async (req, res) => {
-  console.log('Reçu du frontend :', req.body); // <-- Ajoute ce log
 });
