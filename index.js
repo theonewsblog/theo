@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(bodyParser.json());
-});
+
 // Route pour stocker le consentement cookies
 app.post('/api/cookies', async (req, res) => {
     try {
