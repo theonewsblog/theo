@@ -16,37 +16,4 @@ const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(bodyParser.json());
-
-// 2. API : route POST pour recevoir le formulaire
-app.post('/api/contacts', async (req, res) => {
-  try {
-    // Récupère les données envoyées par le client
-    const data = req.body;
-
-console.log("Reçu du front:", req.body);
-    // Enregistre dans Firestore (ou RTDB)
-    await db.collection('contacts').add(data);
-
-    res.status(200).send({message: 'Données reçues'});
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({error: 'Erreur lors de la sauvegarde'});
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-// Route pour stocker le consentement cookies
-app.post('/api/cookies', async (req, res) => {
-    try {
-        const data = req.body; // { consent: 'accepted'/'rejected', date: ... }
-        // Option 1 : enregistrer dans Firestore "consents"
-        await db.collection('consents').add(data);
-
-        res.status(200).send({ message: 'Consentement pris en compte !' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({ error: "Erreur d'enregistrement consentement" });
-    }
 });
